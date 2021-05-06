@@ -10,7 +10,8 @@ ts_config.setup {
         "json",
         "python",
         "cpp",
-        "c"
+        "c",
+        "vue"
         --   "rust",
     },
     highlight = {
