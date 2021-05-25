@@ -2,10 +2,12 @@ vim.cmd[[
     set completeopt=menu,preview,noinsert
     autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand('%'))
     autocmd VimLeave * call system("tmux rename-window bash")
-    autocmd FileType cpp nnoremap <buffer> <F9> :w<cr>:!g++ -std=c++17 % -o %< && ./%< < in <cr>
-    autocmd FileType cpp nnoremap <buffer> <F5> :w<cr>:!g++ -std=c++17 % -o %<  <cr>
+    autocmd FileType cpp nnoremap <buffer> <F9> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra && ./%< < in <cr>
+    autocmd FileType cpp nnoremap <buffer> <F5> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra <cr>
+    autocmd FileType c nnoremap <buffer> <F9> :w<cr>:!gcc % -o %< -Wall -Wextra -lm && ./%< < in <cr>
+    autocmd FileType c nnoremap <buffer> <F5> :w<cr>:!gcc % -o %< -Wall -Wextra -lm <cr>
     set noswapfile
-    autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.c,*.css,*.cpp,*.json exe ':Neoformat'
+    autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.c,*.css,*.cpp,*.json,*.php exe ':Neoformat'
     set nowrap                              
 ]]
 -- nnoremap <C-f> :Neoformat <cr>

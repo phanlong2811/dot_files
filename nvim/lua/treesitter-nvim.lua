@@ -8,7 +8,6 @@ ts_config.setup {
         "bash",
         "lua",
         "json",
-        "python",
         "cpp",
         "c",
         "vue"

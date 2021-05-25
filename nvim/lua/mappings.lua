@@ -30,7 +30,6 @@ vim.cmd([[
     nnoremap <S-TAB> :bprevious<cr>
     nnoremap <C-s> :w <cr>
     nnoremap <C-q> :q!<cr>
-    nnoremap <C-w> :bw!<cr>
     nnoremap <C-c> <Esc>
     map <C-k> <C-u>
     map <C-j> <C-d>
@@ -38,4 +37,6 @@ vim.cmd([[
     nnoremap <C-h> <C-w>h
     map Q <Nop>
 ]])
+
+
 

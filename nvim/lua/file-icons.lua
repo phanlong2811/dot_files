@@ -11,6 +11,7 @@ require "nvim-web-devicons".setup {
             name = "css"
         },
         js = {
+            -- icon = "",
             icon = "",
             color = "#EBCB8B",
             name = "js"
@@ -24,11 +25,6 @@ require "nvim-web-devicons".setup {
             icon = "󱈙",
             color = "#ffcb91",
             name = "kt"
-        },
-        png = {
-            icon = " ",
-            color = "#BD77DC",
-            name = "png"
         },
         jpg = {
             icon = " ",
@@ -104,6 +100,16 @@ require "nvim-web-devicons".setup {
             icon = "",
             color = "#fca2aa",
             name = "rpm"
+        },
+        c = {
+            icon = "󰙱",
+            color = "#7eca9c",
+            name = "c"
+        },
+        cpp = {
+            icon = "ﭱ ",
+            color = "#61afef",
+            name = "cpp"
         }
     }
 }

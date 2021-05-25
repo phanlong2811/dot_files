@@ -40,11 +40,11 @@ require "bufferline".setup {
         -- unfocused opened window
         buffer_visible = {
             guifg = "#9298a0",
-            guibg = "#282c34"
+            guibg = "#1e222a"
         },
         separator_visible = {
-            guifg = "#282c34",
-            guibg = "#282c34"
+            guifg = "#1e222a",
+            guibg = "#1e222a"
         },
         separator = {
             guifg = "#1e222a",

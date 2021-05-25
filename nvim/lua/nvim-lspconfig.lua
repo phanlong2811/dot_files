@@ -36,7 +36,9 @@ function on_attach(client)
 end
 
 local lspconf = require "lspconfig"
-local servers = {"html", "cssls", "tsserver", "pyright" , "bashls", "ccls", "clangd", "vimls", "vuels"}
+local servers = {"html", "cssls", "tsserver", "pyright" , "bashls", "ccls", "clangd", "vimls", "vuels", "phpactor", "pyls"}
+
+
 
 for k, lang in pairs(servers) do
     lspconf[lang].setup {
@@ -80,18 +82,3 @@ vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagn
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
 
--- diagnostics highlights
-
-local cmd = vim.cmd
-
-cmd "hi LspDiagnosticsSignError guifg=#f9929b"
-cmd "hi LspDiagnosticsVirtualTextError guifg=#BF616A"
-
-cmd "hi LspDiagnosticsSignWarning guifg=#EBCB8B"
-cmd "hi LspDiagnosticsVirtualTextWarning guifg=#EBCB8B"
-
-cmd "hi LspDiagnosticsSignInformation guifg=#A3BE8C"
-cmd "hi LspDiagnosticsVirtualTextInformation guifg=#A3BE8C"
-
-cmd "hi LspDiagnosticsSignHint guifg=#b6bdca"
-cmd "hi LspDiagnosticsVirtualTextHint guifg=#b6bdca"

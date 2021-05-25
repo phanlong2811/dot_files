@@ -4,7 +4,7 @@ local g = vim.g
 vim.o.termguicolors = true
 
 g.nvim_tree_side = "left"
-g.nvim_tree_width = 30
+g.nvim_tree_width = 32
 g.nvim_tree_ignore = {".git", "node_modules", ".cache"}
 g.nvim_tree_auto_open = 0
 g.nvim_tree_auto_close = 0
@@ -35,7 +35,7 @@ g.nvim_tree_icons = {
     },
     folder = {
         default = "",
-        open = "",
+        open = "󰝰",
         symlink = ""
     }
 }
@@ -48,7 +48,7 @@ end
 
 vim.api.nvim_set_keymap(
     "n",
-    "<Space>e",
+    "<space>e",
     ":NvimTreeToggle<CR>",
     {
         noremap = true,
@@ -60,8 +60,8 @@ g.nvim_tree_bindings = {
     ["l"] = get_lua_cb("edit"),
     ["h"] = get_lua_cb("edit"),
     ["<2-LeftMouse>"] = get_lua_cb("edit"),
-    ["<2-RightMouse>"] = get_lua_cb("cd"),
-    ["<C-]>"] = get_lua_cb("cd"),
+    ["<C-l>"] = get_lua_cb("cd"),
+    ["<C-h>"] = get_lua_cb("cd.."),
     ["L"] = get_lua_cb("vsplit"),
     ["<C-l>"] = get_lua_cb("split"),
     ["<C-t>"] = get_lua_cb("tabnew"),
@@ -84,6 +84,4 @@ g.nvim_tree_bindings = {
     ["q"] = get_lua_cb("close")
 }
 
-cmd "hi NvimTreeFolderIcon guifg = #61afef"
-cmd "hi NvimTreeFolderName guifg = #61afef"
-cmd "hi NvimTreeIndentMarker guifg=#383c44"
+

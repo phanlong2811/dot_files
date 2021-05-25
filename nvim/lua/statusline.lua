@@ -7,15 +7,8 @@ local colors = {
     bg = "#1e222a",
     line_bg = "#1e222a",
     fg = "#D8DEE9",
-    fg_green = "#65a380",
-    yellow = "#A3BE8C",
-    cyan = "#22262C",
-    darkblue = "#61afef",
     green = "#BBE67E",
     orange = "#FF8800",
-    purple = "#252930",
-    magenta = "#c678dd",
-    blue = "#22262C",
     red = "#DF8890",
     lightbg = "#282c34",
     nord = "#81A1C1",
@@ -45,7 +38,6 @@ gls.left[2] = {
 gls.left[3] = {
     FileIcon = {
         provider = "FileIcon",
-        condition = buffer_not_empty,
         highlight = {require("galaxyline.provider_fileinfo").get_file_icon_color, colors.lightbg}
     }
 }
@@ -53,7 +45,6 @@ gls.left[3] = {
 gls.left[4] = {
     FileName = {
         provider = {"FileName", "FileSize"},
-        condition = buffer_not_empty,
         highlight = {colors.fg, colors.lightbg}
     }
 }
@@ -135,7 +126,7 @@ gls.left[12] = {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",
         icon = "  ",
-        highlight = {colors.blue, colors.bg}
+        highlight = {colors.red, colors.bg}
     }
 }
 
@@ -172,17 +163,17 @@ gls.right[4] = {
     ViMode = {
         provider = function()
             local alias = {
-                n = "NORMAL",
-                i = "INSERT",
-                c = "COMMAND",
-                V = "VISUAL",
-                [""] = "VISUAL",
-                v = "VISUAL",
-                R = "REPLACE"
+                n = "Normal",
+                i = "Insert",
+                c = "Command",
+                V = "Visual",
+                [""] = "Visual",
+                v = "Visual",
+                R = "Replace"
             }
             return alias[vim.fn.mode()]
         end,
-        highlight = {colors.bg, colors.red}
+        highlight = {colors.line_bg, colors.red}
     }
 }
 
@@ -203,3 +194,4 @@ gls.right[6] = {
         highlight = {colors.fg, colors.bg}
     }
 }
+

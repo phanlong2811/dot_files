@@ -56,8 +56,8 @@ Print
      maim | xclip -selection clipboard -t image/png
 
 # clipboard cropped
-# ctrl + Print 
-#     maim --select | xclip -selection clipboard -t image/png
+ctrl + Print 
+    maim --select | xclip -selection clipboard -t image/png
 
 
 
