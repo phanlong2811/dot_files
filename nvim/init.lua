@@ -54,4 +54,3 @@ vim.api.nvim_exec([[
 require "gitsigns-nvim"
 require("nvim-autopairs").setup()
 require("lspkind").init()
-

@@ -27,7 +27,6 @@ return require("packer").startup(
         use "hrsh7th/vim-vsnip"
 
         use "rafamadriz/friendly-snippets"
-
         -- file managing , picker etc
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
