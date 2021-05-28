@@ -22,7 +22,6 @@ return require("packer").startup(
         use "akinsho/nvim-bufferline.lua"
         use "glepnir/galaxyline.nvim"
         use "lewis6991/gitsigns.nvim"
-        
         -- snippet support
         use "hrsh7th/vim-vsnip"
 

@@ -1,6 +1,5 @@
--- load all plugins
+-- load all plugins require "plugins"
 require "plugins"
-
 require "file-icons"
 
 require "misc-utils"
@@ -15,7 +14,7 @@ require "telescope-nvim"
 require "nvimTree"
 
 require "treesitter-nvim"
--- require('neoscroll').setup()
+require('neoscroll').setup()
 require("colorizer").setup()
 require("todo-comments").setup()
 
@@ -23,7 +22,6 @@ require "nvim-lspconfig"
 require "compe-completion"
 -- lsp
 -- require "whichkey"
-
 
 local cmd = vim.cmd
 local g = vim.g

@@ -31,8 +31,8 @@ vim.cmd([[
     nnoremap <C-s> :w <cr>
     nnoremap <C-q> :q!<cr>
     nnoremap <C-c> <Esc>
-    map <C-k> <C-u>
-    map <C-j> <C-d>
+    map <C-k> {
+    map <C-j> }
     nnoremap <C-l> <C-w>l
     nnoremap <C-h> <C-w>h
     map Q <Nop>
