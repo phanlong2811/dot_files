@@ -34,3 +34,4 @@ xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Natural Scrolling Ena
 picom &
 ibus-daemon
 ibus restart &
+xsetroot -cursor_name left_ptr

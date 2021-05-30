@@ -9,21 +9,14 @@ require "compe".setup {
     throttle_time = 80,
     source_timeout = 200,
     incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
+    max_abbr_width = 50,
+    max_kind_width = 50,
+    max_menu_width = 50,
     documentation = true,
     source = {
-        path = true,
         buffer = {kind = "﬘", true},
-        calc = true,
         vsnip = {kind = "﬌"}, --replace to what sign you prefer
-        nvim_lsp = true,
-        nvim_lua = true,
-        spell = true,
-        tags = true,
-        snippets_nvim = true,
-        treesitter = true
+        nvim_lsp = true
     }
 }
 
@@ -84,24 +77,3 @@ vim.cmd[[
     inoremap <silent><expr> <Tab> compe#confirm('<Tab>')
 ]]
 local g = vim.g
-
--- speeden up compe
-g.loaded_compe_calc = 0
-g.loaded_compe_emoji = 0
-
-g.loaded_compe_luasnip = 0
-g.loaded_compe_nvim_lua = 0
-
-g.loaded_compe_path = 0
-g.loaded_compe_spell = 0
-g.loaded_compe_tags = 0
-g.loaded_compe_treesitter = 0
-
-g.loaded_compe_snippets_nvim = 0
-
-g.loaded_compe_ultisnips = 0
-g.loaded_compe_vim_lsc = 0
-g.loaded_compe_vim_lsp = 0
-g.loaded_compe_omni = 0
-
-

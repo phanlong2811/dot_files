@@ -8,6 +8,9 @@ super + Return
 super + b
   dmenu_run
 
+super + t
+    tabbed -r 2 st -w ''
+
 # program launcher
 
 

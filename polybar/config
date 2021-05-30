@@ -58,8 +58,8 @@ border-bottom-color = ${colors.background}
 line-size = 3
 wm-restack = bspwm
 
-modules-left = round-left bspwm round-right 
-modules-center =    
+modules-left = round-left bspwm round-right    
+modules-center = polywins    
 modules-right =      temperature   alsa battery round-left cpu round-right wlan mem round-left time round-right  powermenu
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;2
@@ -68,6 +68,18 @@ font-2 = Material Design Icons:style=Bold:size=13;3
 font-3 = unifont:fontformat=truetype:size=13:antialias=true;
 
 
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+format = <label>
+format-background = #2a2e36
+label = %output%
+label-padding = 0
+tail = true
+
+[module/empty-space]
+type = custom/text
+content = "  "
 [module/round-left]
 type = custom/text
 content = %{T3}%{T-}

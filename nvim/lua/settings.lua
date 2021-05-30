@@ -10,7 +10,6 @@ vim.cmd[[
     autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.c,*.css,*.cpp,*.json,*.php exe ':Neoformat'
     set nowrap                              
 ]]
--- nnoremap <C-f> :Neoformat <cr>
 vim.o.titlestring="%<%F%=%l/%L - nvim"
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.cmd('syntax on') -- syntax highlighting
@@ -23,7 +22,7 @@ vim.o.mouse = "a" -- Enable your mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
 vim.o.termguicolors = true -- set term gui colors most terminals support this
 vim.o.splitright = true -- Vertical splits will automatically be to the right
-vim.o.t_Co = "256" -- Support 256 colors
+
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 vim.cmd('set ts=4') -- Insert 2 spaces for a tab
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
@@ -38,6 +37,3 @@ vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shif
 vim.o.updatetime = 300 -- Faster completion
 vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
-vim.o.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
-
-

@@ -33,7 +33,7 @@ return require("packer").startup(
         use "nvim-telescope/telescope.nvim"
         use "nvim-telescope/telescope-media-files.nvim"
         use "nvim-lua/popup.nvim"
-        -- use "folke/which-key.nvim"
+        use "folke/which-key.nvim"
         -- use "neoclide/coc.nvim"
         use "folke/todo-comments.nvim"
         use "tpope/vim-commentary"

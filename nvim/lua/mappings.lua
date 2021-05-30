@@ -1,10 +1,3 @@
-vim.cmd('set ts=4') -- Insert 2 spaces for a tab
-vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
-vim.bo.expandtab = true -- Converts tabs to spaces
-vim.bo.smartindent = true -- Makes indenting smart
-vim.bo.expandtab = true
-
-    -- inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 vim.cmd([[
     inoremap jk <Esc>
     vnoremap < <gv
