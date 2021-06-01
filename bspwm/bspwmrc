@@ -26,6 +26,7 @@ bspc config gapless_monocle false
 bspc config window_gap 15
 bspc config split_ratio 0.50
 
+xsetroot -cursor_name left_ptr
 xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Tapping Enabled' 1 
 xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Natural Scrolling Enabled' 1
 
@@ -34,4 +35,3 @@ xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Natural Scrolling Ena
 picom &
 ibus-daemon
 ibus restart &
-xsetroot -cursor_name left_ptr
