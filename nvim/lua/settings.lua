@@ -1,5 +1,4 @@
 vim.cmd[[
-    set completeopt=menu,preview,noinsert
     autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand('%'))
     autocmd VimLeave * call system("tmux rename-window bash")
     autocmd FileType cpp nnoremap <buffer> <F9> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra && ./%< < in <cr>
@@ -8,13 +7,15 @@ vim.cmd[[
     autocmd FileType c nnoremap <buffer> <F5> :w<cr>:!gcc % -o %< -Wall -Wextra -lm <cr>
     autocmd FileType python nnoremap <buffer> <F9> :w<cr>:!python3 % < in <cr>
     set noswapfile
-    autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.css,*.cpp,*.json,*.php,*.c exe ':Neoformat'
-    set nowrap                              
+    set nowrap
+    syntax on
 ]]
+
+-- autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.css,*.cpp,*.json,*.php,*.c exe ':Neoformat'
+vim.o.completeopt="menu,preview,noinsert"
 vim.o.titlestring="%<%F%=%l/%L - nvim"
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
-vim.cmd('syntax on') -- syntax highlighting
-vim.cmd('set guicursor=a:block')
+vim.o.guicursor="a:block"
 vim.o.pumheight = 10 -- Makes popup menu smaller
 vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.o.cmdheight = 2 -- More space for displaying messages

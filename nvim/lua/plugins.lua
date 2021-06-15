@@ -43,6 +43,7 @@ return require("packer").startup(
         use "karb94/neoscroll.nvim"
         use "kovetskiy/sxhkd-vim"
         use "sbdchd/neoformat"
+        use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     end,
     {
         display = {

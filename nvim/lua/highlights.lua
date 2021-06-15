@@ -97,8 +97,7 @@ fg("LspDiagnosticsSignHint", purple)
 fg("LspDiagnosticsVirtualTextHint", purple)
 
 -- dashboard
-
--- fg("DashboardHeader", grey_fg)
--- fg("DashboardCenter", grey_fg)
--- fg("DashboardShortcut", grey_fg)
--- fg("DashboardFooter", black)
+fg("DashboardHeader", grey_fg)
+fg("DashboardCenter", grey_fg)
+fg("DashboardShortcut", grey_fg)
+fg("DashboardFooter", grey_fg)

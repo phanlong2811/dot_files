@@ -20,12 +20,15 @@ require("colorizer").setup()
 require("todo-comments").setup()
 require('nvim_comment').setup()
 
+require "gitsigns-nvim"
+require("lspkind").init()
+require("nvim-autopairs").setup()
+
 require "nvim-lspconfig"
 require "compe-completion"
 
 local cmd = vim.cmd
 local g = vim.g
-
 
 g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"
@@ -57,8 +60,6 @@ vim.api.nvim_exec([[
    au BufEnter term://* setlocal nonumber
 ]], false)
 
-require "gitsigns-nvim"
-require("lspkind").init()
-require("nvim-autopairs").setup()
+
 
 require "highlights"
