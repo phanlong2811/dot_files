@@ -11,7 +11,8 @@ ts_config.setup {
         "cpp",
         "c",
         "vue",
-        "python"
+        "python",
+        "ruby"
         --   "rust",
     },
     highlight = {

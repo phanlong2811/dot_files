@@ -62,8 +62,9 @@ time("try_loadstring definition", true)
 local function try_loadstring(s, component, name)
   local success, result = pcall(loadstring(s))
   if not success then
-    print('Error running ' .. component .. ' for ' .. name)
-    error(result)
+    vim.schedule(function()
+      vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
+    end)
   end
   return result
 end
@@ -71,10 +72,6 @@ end
 time("try_loadstring definition", false)
 time("Defining packer_plugins", true)
 _G.packer_plugins = {
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/friendly-snippets"
-  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -171,9 +168,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-devicons"
   },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   }
 }
 

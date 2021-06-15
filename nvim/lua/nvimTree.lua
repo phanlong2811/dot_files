@@ -84,4 +84,3 @@ g.nvim_tree_bindings = {
     ["q"] = get_lua_cb("close")
 }
 
-

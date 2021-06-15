@@ -183,6 +183,7 @@ generate_window_list() {
       figma-linux) w_name='' ;;
       discord) w_name='ﭮ' ;;
       Code) w_name='' ;;
+      vlc) w_name='' ;;
       *) w_name="$cls" ;;
       esac
       ;;

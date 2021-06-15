@@ -8,6 +8,7 @@ Xft.lcdfilter:	lcddefault
 Xft.dpi:  85
 
 st.font:         JetBrainsMono Nerd Font:style:regular:pixelsize=13
+/* st.font:         Fira Code:style:regular:pixelsize=13 */
 
 ! window border inner
 st.opacity: 255

@@ -13,7 +13,7 @@ function on_attach(client)
     local opts = {noremap = true, silent = true, normal = true}
     map("gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     map("gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    map("K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    -- map("K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     map("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     map("<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     map("<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
@@ -36,7 +36,7 @@ function on_attach(client)
 end
 
 local lspconf = require "lspconfig"
-local servers = {"html", "cssls", "tsserver", "bashls", "ccls", "clangd", "vimls", "vuels", "phpactor"}
+local servers = {"html", "cssls", "tsserver", "bashls", "ccls", "clangd", "vimls", "vuels", "phpactor", "solargraph", "pyright"}
 
 for k, lang in pairs(servers) do
     lspconf[lang].setup {

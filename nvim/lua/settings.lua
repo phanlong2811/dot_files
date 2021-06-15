@@ -6,8 +6,9 @@ vim.cmd[[
     autocmd FileType cpp nnoremap <buffer> <F5> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra <cr>
     autocmd FileType c nnoremap <buffer> <F9> :w<cr>:!gcc % -o %< -Wall -Wextra -lm && ./%< < in <cr>
     autocmd FileType c nnoremap <buffer> <F5> :w<cr>:!gcc % -o %< -Wall -Wextra -lm <cr>
+    autocmd FileType python nnoremap <buffer> <F9> :w<cr>:!python3 % < in <cr>
     set noswapfile
-    autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.css,*.cpp,*.json,*.php exe ':Neoformat'
+    autocmd BufWritePre,BufRead *.html,*.js,*.vue,*.css,*.cpp,*.json,*.php,*.c exe ':Neoformat'
     set nowrap                              
 ]]
 vim.o.titlestring="%<%F%=%l/%L - nvim"

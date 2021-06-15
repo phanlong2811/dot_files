@@ -46,7 +46,6 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 #fullscreen screenshot save
-
 super + Print
      maim "/home/$USER/Pictures/$(date)"
 

@@ -15,10 +15,6 @@ vim.cmd([[
     vnoremap h ge
     vnoremap H <left>
     vnoremap L <right>
-    inoremap <C-k> <up>
-    inoremap <C-j> <down>
-    inoremap <C-h> <left>
-    inoremap <C-l> <right>
     nnoremap <TAB> :bnext<cr>
     nnoremap <S-TAB> :bprevious<cr>
     nnoremap <C-s> :w <cr>
@@ -30,6 +26,16 @@ vim.cmd([[
     nnoremap <C-h> <C-w>h
     map Q <Nop>
 ]])
+ local function map(mode, lhs, rhs, opts)
+    local options = {noremap = true}
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
+local opt = {}
 
-
+-- Commenter Keybinding
+map("n", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
+map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
