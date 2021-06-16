@@ -17,6 +17,7 @@ return require("packer").startup(
         -- use "kabouzeid/nvim-lspinstall"
         use "neovim/nvim-lspconfig"
         use "nvim-lua/plenary.nvim"
+        use "nvim-lua/popup.nvim"
         use "hrsh7th/nvim-compe"
         use "windwp/nvim-autopairs"
         use "alvan/vim-closetag"
@@ -25,14 +26,13 @@ return require("packer").startup(
         use "lewis6991/gitsigns.nvim"
         -- snippet support
         use "hrsh7th/vim-vsnip"
-        -- use "rafamadriz/friendly-snippets" file managing , picker etc
-        --
+        -- file managing , picker etc
+        -- use "rafamadriz/friendly-snippets"
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
         use "ryanoasis/vim-devicons"
         use "nvim-telescope/telescope.nvim"
         use "nvim-telescope/telescope-media-files.nvim"
-        use "nvim-lua/popup.nvim"
         use "glepnir/dashboard-nvim"
         use "tweekmonster/startuptime.vim"
         use "907th/vim-auto-save"
