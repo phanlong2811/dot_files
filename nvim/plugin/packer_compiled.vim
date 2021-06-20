@@ -46,7 +46,7 @@ local function save_profiles(threshold)
   _G._packer.profile_output = results
 end
 
-time("Luarocks path setup", true)
+time([[Luarocks path setup]], true)
 local package_path_str = "/home/phanlong2811/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/phanlong2811/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/phanlong2811/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/phanlong2811/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
 local install_cpath_pattern = "/home/phanlong2811/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
@@ -57,8 +57,8 @@ if not string.find(package.cpath, install_cpath_pattern, 1, true) then
   package.cpath = package.cpath .. ';' .. install_cpath_pattern
 end
 
-time("Luarocks path setup", false)
-time("try_loadstring definition", true)
+time([[Luarocks path setup]], false)
+time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
   local success, result = pcall(loadstring(s))
   if not success then
@@ -69,9 +69,13 @@ local function try_loadstring(s, component, name)
   return result
 end
 
-time("try_loadstring definition", false)
-time("Defining packer_plugins", true)
+time([[try_loadstring definition]], false)
+time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
@@ -80,13 +84,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
+  neorg = {
+    config = { "\27LJ\2\nà\1\0\0\6\0\14\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0004\4\0\0=\4\4\0034\4\0\0=\4\5\3=\3\a\0026\3\b\0009\3\t\0039\3\n\3'\5\v\0B\3\2\2'\4\f\0&\3\4\3=\3\r\2B\0\2\1K\0\1\0\26community_module_path\29/neorg_community_modules\ncache\fstdpath\afn\bvim\tload\1\0\0\24core.norg.concealer\18core.defaults\1\0\0\nsetup\nneorg\frequire\0" },
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/neorg"
   },
   ["neoscroll.nvim"] = {
     loaded = true,
@@ -107,6 +124,10 @@ _G.packer_plugins = {
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+  },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/nvim-comment"
   },
   ["nvim-compe"] = {
     loaded = true,
@@ -140,6 +161,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["startuptime.vim"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/startuptime.vim"
+  },
   ["sxhkd-vim"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/sxhkd-vim"
@@ -156,13 +181,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
+  ["vim-auto-save"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-auto-save"
+  },
   ["vim-closetag"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-closetag"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -176,13 +201,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
-  ["vim-vsnip-integ"] = {
+  ["vim-wakatime"] = {
     loaded = true,
-    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/vim-wakatime"
   }
 }
 
-time("Defining packer_plugins", false)
+time([[Defining packer_plugins]], false)
+-- Config for: neorg
+time([[Config for neorg]], true)
+try_loadstring("\27LJ\2\nà\1\0\0\6\0\14\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0004\4\0\0=\4\4\0034\4\0\0=\4\5\3=\3\a\0026\3\b\0009\3\t\0039\3\n\3'\5\v\0B\3\2\2'\4\f\0&\3\4\3=\3\r\2B\0\2\1K\0\1\0\26community_module_path\29/neorg_community_modules\ncache\fstdpath\afn\bvim\tload\1\0\0\24core.norg.concealer\18core.defaults\1\0\0\nsetup\nneorg\frequire\0", "config", "neorg")
+time([[Config for neorg]], false)
 if should_profile then save_profiles() end
 
 END

@@ -7,7 +7,6 @@ require "top-bufferline"
 -- require "statusline"
 require "statusline2"
 
-require "settings"
 require "mappings"
 require "telescope-nvim"
 require "nvimTree"

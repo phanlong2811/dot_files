@@ -39,3 +39,13 @@ local opt = {}
 -- Commenter Keybinding
 map("n", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
+
+-- COPY EVERYTHING --
+map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
+-- toggle numbers ---
+map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
+
+-- toggle truezen.nvim's ataraxis and minimalist mode
+map("n", "<leader>z", [[ <Cmd> TZAtaraxis<CR>]], opt)
+map("n", "<leader>m", [[ <Cmd> TZMinimalist<CR>]], opt)
+

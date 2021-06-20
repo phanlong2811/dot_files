@@ -26,6 +26,7 @@ return require("packer").startup(
         use "lewis6991/gitsigns.nvim"
         -- snippet support
         use "hrsh7th/vim-vsnip"
+
         -- file managing , picker etc
         -- use "rafamadriz/friendly-snippets"
         use "kyazdani42/nvim-tree.lua"
@@ -38,11 +39,24 @@ return require("packer").startup(
         use "907th/vim-auto-save"
         -- use "folke/which-key.nvim"
         -- use "neoclide/coc.nvim"
+
+        use "wakatime/vim-wakatime"
+        use "iamcco/markdown-preview.nvim"
         use "folke/todo-comments.nvim"
         use "terrortylor/nvim-comment"
         use "karb94/neoscroll.nvim"
-        use "kovetskiy/sxhkd-vim"
         use "sbdchd/neoformat"
+        use "kovetskiy/sxhkd-vim"
+		use {'vhyrro/neorg', requires = { 'nvim-lua/plenary.nvim' }, config = function()
+			require('neorg').setup {
+				load = {
+					["core.defaults"] = {}, -- Load all the default modules
+					["core.norg.concealer"] = {} -- Enhances the text editing experience by using icons
+				},
+				-- Tells neorg where to load community provided modules. If unspecified, this is the default
+				community_module_path = vim.fn.stdpath("cache") .. "/neorg_community_modules"
+			}
+		end}
         use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     end,
     {

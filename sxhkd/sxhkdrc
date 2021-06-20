@@ -6,7 +6,7 @@ super + Return
 	 st
 #dmenu
 super + b
-  dmenu_run
+     dmenu_run
 
 super + t
     tabbed -r 2 st -w ''
@@ -15,7 +15,7 @@ super + t
 
 
 super + a
-	 ~/.config/rofi/scripts/backlight.sh
+	~/.config/rofi/scripts/backlight.sh
 
 # make sxhkd reload its configuration files:
 super + shift + r
@@ -31,7 +31,7 @@ super + shift + e
 
 #rofi
 super + c
-     rofi -show drun
+    rofi -show drun
 
 #
 # bspwm hotkeys
@@ -47,15 +47,15 @@ super + {_,shift + }q
 
 #fullscreen screenshot save
 super + Print
-     maim "/home/$USER/Pictures/$(date)"
+    maim "/home/$USER/Pictures/$(date)"
 
 #cropped save
 super + shift + x
-     maim --select "/home/$USER/Pictures/$(date)"
+    maim --select "/home/$USER/Pictures/$(date)"
 
 #  clipboard fullscreen
 Print
-     maim | xclip -selection clipboard -t image/png
+    maim | xclip -selection clipboard -t image/png
 
 # clipboard cropped
 ctrl + Print 
