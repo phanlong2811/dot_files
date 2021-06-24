@@ -2,13 +2,13 @@ super + m
      bspc desktop -l next
 
 # terminal emulator
-super + Return
+super + t
 	 st
 #dmenu
 super + b
      dmenu_run
 
-super + t
+super + Return
     tabbed -r 2 st -w ''
 
 # program launcher

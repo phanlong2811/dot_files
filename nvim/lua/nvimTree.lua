@@ -63,7 +63,6 @@ g.nvim_tree_bindings = {
     ["<C-l>"] = get_lua_cb("cd"),
     ["<C-h>"] = get_lua_cb("cd.."),
     ["L"] = get_lua_cb("vsplit"),
-    ["<C-l>"] = get_lua_cb("split"),
     ["<C-t>"] = get_lua_cb("tabnew"),
     ["<BS>"] = get_lua_cb("close_node"),
     ["<S-CR>"] = get_lua_cb("close_node"),

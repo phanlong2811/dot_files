@@ -76,6 +76,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"

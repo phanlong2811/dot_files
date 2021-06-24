@@ -68,8 +68,8 @@ st.borderpx: 10
   *color20:      base04
   *color21:      base06
 
-  tabbed.selbgcolor:   #282c34
+  tabbed.selbgcolor:   #1e222a
   tabbed.selfgcolor:   #d6d8eb
 
-  tabbed.normfgcolor:  #9294a8
-  tabbed.normbgcolor:  #353b45
+  tabbed.normfgcolor:  #c8ccd4
+  tabbed.normbgcolor:  #282c34

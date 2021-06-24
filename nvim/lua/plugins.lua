@@ -28,7 +28,7 @@ return require("packer").startup(
         use "hrsh7th/vim-vsnip"
 
         -- file managing , picker etc
-        -- use "rafamadriz/friendly-snippets"
+        use "rafamadriz/friendly-snippets"
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
         use "ryanoasis/vim-devicons"
@@ -57,7 +57,7 @@ return require("packer").startup(
 				community_module_path = vim.fn.stdpath("cache") .. "/neorg_community_modules"
 			}
 		end}
-        use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+        -- use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     end,
     {
         display = {

@@ -12,14 +12,11 @@ opt("o", "showmode", false)
 opt("o", "hidden", true)
 opt("o", "ignorecase", true)
 opt("o", "splitbelow", true)
-opt("o", "splitright", true)
+-- opt("o", "splitright", true)
 opt("o", "termguicolors", true)
 opt("w", "cul", true)
-
 opt("o", "mouse", "a")
 
-opt("w", "signcolumn", "yes")
-opt("o", "cmdheight", 1)
 
 opt("o", "updatetime", 250) -- update interval for gitsigns
 opt("o", "clipboard", "unnamedplus")
@@ -34,15 +31,16 @@ opt("o", "numberwidth", 4)
 -- opt("b", "expandtab", true)
 -- opt("b", "tabstop", 4)
 -- opt("b", "shiftwidth", 4)
--- opt("b", "smartindent", true)
+opt("b", "smartindent", true)
 
 vim.o.guicursor="a:block"
 vim.cmd('set ts=4') -- Insert 2 spaces for a tab
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
 
+
 vim.cmd[[
-    autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand('%'))
-    autocmd VimLeave * call system("tmux rename-window bash")
+    autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand('%:t'))
+    autocmd VimLeave * call system("tmux rename-window zsh")
     autocmd FileType cpp nnoremap <buffer> <F9> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra && ./%< < in <cr>
     autocmd FileType cpp nnoremap <buffer> <F5> :w<cr>:!g++ -O2 -std=c++17 % -o %< -Wall -Wextra <cr>
     autocmd FileType c nnoremap <buffer> <F9> :w<cr>:!gcc % -o %< -Wall -Wextra -lm && ./%< < in <cr>
@@ -66,7 +64,7 @@ vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.o.mouse = "a" -- Enable your mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
 vim.o.termguicolors = true -- set term gui colors most terminals support this
-vim.o.splitright = true -- Vertical splits will automatically be to the right
+-- vim.o.splitright = true -- Vertical splits will automatically be to the right
 
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 

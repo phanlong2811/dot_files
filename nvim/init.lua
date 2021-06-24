@@ -1,55 +1,64 @@
--- load all plugins require "plugins"
+-- load all plugins
 require "plugins"
-require "file-icons"
-
 require "misc-utils"
+
 require "top-bufferline"
--- require "statusline"
 require "statusline2"
 
-require "mappings"
-require "telescope-nvim"
-require "nvimTree"
+require("colorizer").setup()
+require("neoscroll").setup() -- smooth scroll
 
--- require "whichkey"
-require "dashboard"
+-- lsp stuff
+require "nvim-lspconfig"
+require "compe-completion"
 
 local cmd = vim.cmd
 local g = vim.g
 
+g.mapleader = " "
+g.auto_save = 0
+
+-- colorscheme related stuff
 cmd "syntax on"
 
 local base16 = require "base16"
+-- material
 base16(base16.themes["material"], true)
 
 require "highlights"
 
-g.indentLine_enabled = 1
-g.indent_blankline_char = "▏"
-
-g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-g.indent_blankline_buftype_exclude = {"terminal"}
-
-g.indent_blankline_show_trailing_blankline_indent = false
-g.indent_blankline_show_first_indent_level = false
-
-g.mapleader = " "
-g.auto_save = 0
+-- blankline
+-- 
+-- g.indentLine_enabled = 1
+-- g.indent_blankline_char = "▏"
+-- 
+-- g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+-- g.indent_blankline_buftype_exclude = {"terminal"}
+-- 
+-- g.indent_blankline_show_trailing_blankline_indent = false
+-- g.indent_blankline_show_first_indent_level = false
 
 require "treesitter-nvim"
+require "mappings"
+
+require "telescope-nvim"
+require "nvimTree" -- file tree stuff
+require "file-icons"
+
+-- git signs , lsp symbols etc
 require "gitsigns-nvim"
-require("lspkind").init()
 require("nvim-autopairs").setup()
+require("lspkind").init()
 
-require "nvim-lspconfig"
-require "compe-completion"
-
--- hide line numbers in terminal windows
-vim.api.nvim_exec([[
+-- hide line numbers , statusline in specific buffers!
+vim.api.nvim_exec(
+    [[
    au BufEnter term://* setlocal nonumber
-]], false)
--- colorscheme related stuff
-require('neoscroll').setup()
-require("colorizer").setup()
-require("todo-comments").setup()
-require('nvim_comment').setup()
+   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
+   au BufEnter term://* set laststatus=0 
+]],
+    false
+)
+
+require "dashboard"
+require("nvim_comment").setup()

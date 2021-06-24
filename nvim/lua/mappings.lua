@@ -1,18 +1,4 @@
 vim.cmd([[
-    inoremap jk <Esc>
-    vnoremap < <gv
-    vnoremap > >gv
-    nnoremap <left> :echoe "Use h"<cr>
-    nnoremap <right> :echoe "Use l"<cr>
-    nnoremap <up> :echoe "Use k"<cr>
-    nnoremap <down> :echoe "Use j"<cr>
-    nnoremap <ESC><ESC> :nohlsearch<cr>
-    nnoremap L l
-    nnoremap H h
-    nnoremap l w
-    nnoremap h b
-    vnoremap l e
-    vnoremap h ge
     vnoremap H <left>
     vnoremap L <right>
     nnoremap <TAB> :bnext<cr>
@@ -40,12 +26,22 @@ local opt = {}
 map("n", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 map("v", "gc", ":CommentToggle<CR>", {noremap = true, silent = true})
 
+map("i", "jk", "<Esc>", opt)
+map("v", "<", "<gv", opt)
+map("v", ">", ">gv", opt)
+map("n", "<left>", ":echoe \"Use h\"<cr>", opt)
+map("n", "<right>", ":echoe \"Use l\"<cr>", opt)
+map("n", "<up>", ":echoe \"Use k\"<cr>", opt)
+map("n", "<down>", ":echoe \"Use j\"<cr>", opt)
+map("n", "<Esc><Esc>", ":nohlsearch<cr>", opt)
 -- COPY EVERYTHING --
 map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
+map("n", "L", "l", opt)
+map("n", "H", "h", opt)
+map("n", "l", "w", opt)
+map("n", "h", "b", opt)
+map("v", "l", "e", opt)
+map("v", "h", "ge", opt)
 -- toggle numbers ---
-map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
-
--- toggle truezen.nvim's ataraxis and minimalist mode
-map("n", "<leader>z", [[ <Cmd> TZAtaraxis<CR>]], opt)
-map("n", "<leader>m", [[ <Cmd> TZMinimalist<CR>]], opt)
+-- map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
 
