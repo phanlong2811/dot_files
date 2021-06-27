@@ -173,7 +173,8 @@ generate_window_list() {
         "icon")
             case "$cls" in
             St) w_name='' ;;
-            tabbed) w_name='' ;;
+            # tabbed) w_name='' ;;
+            tabbed) w_name='' ;;
             Google-chrome) w_name='' ;;
             TelegramDesktop) w_name=' ' ;;
             gnome) w_name='' ;;

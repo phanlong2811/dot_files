@@ -20,9 +20,8 @@ return packer.startup(
             config = function()
                 require("compe-completion").config()
             end,
-            wants = {"LuaSnip", "compe-tabnine"},
+            wants = "LuaSnip",
             requires = {
-                {'tzachar/compe-tabnine', run='chmod +x install.sh; ./install.sh'}, 
                 {
                     "L3MON4D3/LuaSnip",
                     wants = {"friendly-snippets", "custom-snippets"},

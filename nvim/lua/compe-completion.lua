@@ -18,7 +18,6 @@ M.config = function()
             luasnip = {kind = "﬌", true},
             nvim_lsp = true,
             nvim_lua = true,
-            tabnine = true,
         }
     }
 end
