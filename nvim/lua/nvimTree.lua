@@ -82,4 +82,3 @@ g.nvim_tree_bindings = {
     ["-"] = get_lua_cb("dir_up"),
     ["q"] = get_lua_cb("close")
 }
-

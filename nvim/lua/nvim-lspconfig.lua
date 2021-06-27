@@ -36,7 +36,7 @@ function on_attach(client)
 end
 
 local lspconf = require "lspconfig"
-local servers = {"ccls", "html", "cssls", "tsserver", "bashls", "clangd", "vimls", "vuels", "phpactor", "solargraph", "pyright", "sumneko_lua", "zeta_note"}
+local servers = {"ccls", "html", "cssls", "tsserver", "bashls",  "vimls", "vuels", "phpactor", "solargraph", "pyright", "sumneko_lua", "zeta_note"}
 
 for k, lang in pairs(servers) do
     lspconf[lang].setup {
@@ -79,4 +79,3 @@ vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnos
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
-

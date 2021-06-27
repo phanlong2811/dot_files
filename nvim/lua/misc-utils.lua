@@ -28,10 +28,10 @@ opt("o", "numberwidth", 4)
 -- opt("w", "relativenumber", true)
 
 -- for indenline
--- opt("b", "expandtab", true)
--- opt("b", "tabstop", 4)
--- opt("b", "shiftwidth", 4)
-opt("b", "smartindent", true)
+opt("b", "expandtab", true)
+opt("b", "tabstop", 4)
+opt("b", "shiftwidth", 4)
+-- opt("b", "smartindent", true)
 
 vim.o.guicursor="a:block"
 vim.cmd('set ts=4') -- Insert 2 spaces for a tab
@@ -78,3 +78,16 @@ vim.o.updatetime = 300 -- Faster completion
 vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+vim.o.completeopt = "menuone,noselect"
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+

@@ -33,9 +33,9 @@ map("n", "<left>", ":echoe \"Use h\"<cr>", opt)
 map("n", "<right>", ":echoe \"Use l\"<cr>", opt)
 map("n", "<up>", ":echoe \"Use k\"<cr>", opt)
 map("n", "<down>", ":echoe \"Use j\"<cr>", opt)
-map("n", "<Esc><Esc>", ":nohlsearch<cr>", opt)
+-- map("n", "<Esc><Esc>", ":nohlsearch<cr>", opt)
 -- COPY EVERYTHING --
-map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
+map("n", "<C-a>", "ggVG", opt)
 map("n", "L", "l", opt)
 map("n", "H", "h", opt)
 map("n", "l", "w", opt)
@@ -43,5 +43,21 @@ map("n", "h", "b", opt)
 map("v", "l", "e", opt)
 map("v", "h", "ge", opt)
 -- toggle numbers ---
--- map("n", "<leader>n", [[ <Cmd> set nu!<CR>]], opt)
-
+map("n", "<leader>fm", [[ <Cmd> :Neoformat<CR>]], opt)
+--
+vim.cmd[[inoremap <silent><expr> <Tab> compe#confirm('<Tab>')]]
+function _G.completions()
+     local npairs = require("nvim-autopairs")
+     return npairs.check_break_line_char()
+end
+map("i", "<CR>", "v:lua.completions()", {expr = true})
+ 
+    -- mappings
+-- Telescope
+map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
+map("n", "<Leader>cm", [[<Cmd> Telescope git_commits <CR>]], opt)
+map("n", "<Leader>ff", [[<Cmd> Telescope find_files <CR>]], opt)
+map("n", "<Leader>fp", [[<Cmd>lua require('telescope').extensions.media_files.media_files()<CR>]], opt)
+map("n", "<Leader>fb", [[<Cmd>Telescope Buffers<CR>]], opt)
+map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
+map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)

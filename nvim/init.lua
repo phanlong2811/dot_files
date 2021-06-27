@@ -10,7 +10,7 @@ require("neoscroll").setup() -- smooth scroll
 
 -- lsp stuff
 require "nvim-lspconfig"
-require "compe-completion"
+-- require "compe-completion"
 
 local cmd = vim.cmd
 local g = vim.g
@@ -27,32 +27,19 @@ base16(base16.themes["material"], true)
 
 require "highlights"
 
--- blankline
--- 
--- g.indentLine_enabled = 1
--- g.indent_blankline_char = "▏"
--- 
--- g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
--- g.indent_blankline_buftype_exclude = {"terminal"}
--- 
--- g.indent_blankline_show_trailing_blankline_indent = false
--- g.indent_blankline_show_first_indent_level = false
-
 require "treesitter-nvim"
 require "mappings"
 
-require "telescope-nvim"
 require "nvimTree" -- file tree stuff
 require "file-icons"
 
+
 -- git signs , lsp symbols etc
-require "gitsigns-nvim"
 require("nvim-autopairs").setup()
-require("lspkind").init()
 
 -- hide line numbers , statusline in specific buffers!
 vim.api.nvim_exec(
-    [[
+[[
    au BufEnter term://* setlocal nonumber
    au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
    au BufEnter term://* set laststatus=0 
@@ -60,5 +47,5 @@ vim.api.nvim_exec(
     false
 )
 
-require "dashboard"
 require("nvim_comment").setup()
+require("dashboard")

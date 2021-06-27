@@ -184,10 +184,11 @@ type = internal/network
 interface = wlp4s0
 interval = 3.0
 format-connected =  <label-connected>
-label-connected = "󰤪  %essid%" 
+;label-connected = "󰤪  %essid%" 
+label-connected = %{A1:st -e nmtui &:}󰤪 %essid%%{A}
 
-
-label-disconnected = "睊 disconnected"
+label-disconnected = %{A1:st -e nmtui &:}睊 disconnected%{A}
+;label-disconnected = "睊 disconnected"
 label-disconnected-foreground = #e06c75 
 label-disconnected-background = #2b2f37
 
