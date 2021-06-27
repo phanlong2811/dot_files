@@ -1,13 +1,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/phanlong2811/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ghost"
 plugins=(
     git
     z
     zsh-autosuggestions
     zsh-completions
     tmux
+    npm
     fast-syntax-highlighting
+    autoupdate
 )
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
@@ -16,10 +18,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # zsh-autosuggestions
 
+bindkey '^I' autosuggest-accept
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-bindkey "\t" end-of-line
-
+export UPDATE_ZSH_DAYS=7
 export EDITOR=nvim
 export FZF_DEFAULT_OPTS='
   --color fg+:2,bg+:-1,hl+:2
@@ -34,5 +38,10 @@ export FZF_DEFAULT_OPTS='
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="logo-ls"
+alias clangd="clangd-10"
+# alias clear="bunny"
 
 export TERM=xterm-256color
+# bunny
+
+alias luamake=/home/phanlong2811/lua-language-server/3rd/luamake/luamake
