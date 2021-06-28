@@ -8,7 +8,13 @@ return packer.startup(
         use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
         -- color related stuff
         use "siduck76/nvim-base16.lua"
-        use "norcalli/nvim-colorizer.lua"
+        use {
+            "norcalli/nvim-colorizer.lua",
+            config = function()
+                require("colorizer").setup()
+                vim.cmd("ColorizerReloadAllBuffers")
+            end
+        }
         use "mg979/vim-visual-multi"
         -- lsp stuff
         use "nvim-treesitter/nvim-treesitter"
@@ -25,7 +31,7 @@ return packer.startup(
                 {
                     "L3MON4D3/LuaSnip",
                     wants = {"friendly-snippets", "custom-snippets"},
-                    event = "InsertCharPre",
+                    event = {"InsertCharPre", "InsertLeave"},
                     config = function()
                         require("compe-completion").snippets()
                     end

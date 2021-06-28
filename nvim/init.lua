@@ -5,7 +5,6 @@ require "misc-utils"
 require "top-bufferline"
 require "statusline2"
 
-require("colorizer").setup()
 require("neoscroll").setup() -- smooth scroll
 
 -- lsp stuff
@@ -35,6 +34,7 @@ require "file-icons"
 
 
 -- git signs , lsp symbols etc
+require("colorizer").setup()
 require("nvim-autopairs").setup()
 
 -- hide line numbers , statusline in specific buffers!

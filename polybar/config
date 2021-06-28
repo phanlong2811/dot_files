@@ -41,7 +41,7 @@ wm-restack = bspwm
 
 modules-left = round-left bspwm round-right   
 modules-center = round-left polywins round-right     
-modules-right =     temperature   round-left  alsa round-right empty-space  cpu   empty-space round-left wlan round-right  empty-space  mem  empty-space round-left time round-right  empty-space battery  powermenu
+modules-right =  temperature   round-left  alsa round-right empty-space  cpu   empty-space round-left wlan round-right  empty-space  mem  empty-space round-left time round-right  empty-space battery  powermenu
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=17;4
@@ -57,6 +57,7 @@ format-background = #2a2e36
 label = %output%
 label-padding = 0
 tail = true
+
 
 [module/empty-space]
 type = custom/text

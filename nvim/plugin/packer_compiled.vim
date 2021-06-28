@@ -77,7 +77,11 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/opt/LuaSnip",
-    wants = { "friendly-snippets" }
+    wants = { "friendly-snippets", "custom-snippets" }
+  },
+  ["custom-snippets"] = {
+    loaded = true,
+    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/custom-snippets"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -125,10 +129,6 @@ _G.packer_plugins = {
   ["nvim-bufferline.lua"] = {
     loaded = true,
     path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/phanlong2811/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-comment"] = {
     loaded = true,
@@ -229,17 +229,17 @@ time([[Config for neorg]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-vim.cmd [[command! -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
 vim.cmd [[command! -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'startuptime.vim'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
+vim.cmd [[command! -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'LuaSnip'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'gitsigns.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-compe'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'LuaSnip'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
