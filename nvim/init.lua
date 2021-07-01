@@ -22,6 +22,7 @@ cmd "syntax on"
 
 local base16 = require "base16"
 -- material
+-- base16(base16.themes["nvchad-softgruv"], true)
 base16(base16.themes["material"], true)
 
 require "highlights"

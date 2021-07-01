@@ -176,9 +176,9 @@ generate_window_list() {
             # tabbed) w_name='' ;;
             tabbed) w_name='' ;;
             Google-chrome) w_name='' ;;
-            TelegramDesktop) w_name=' ' ;;
+            TelegramDesktop) w_name='' ;;
             gnome) w_name='' ;;
-            SimpleScreenRecorder) w_name='' ;;
+            Kazam) w_name='' ;;
             Blue-recorder) w_name='' ;;
             Firefox) w_name='' ;;
             figma-linux) w_name='' ;;

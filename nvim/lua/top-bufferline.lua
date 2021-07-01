@@ -1,5 +1,4 @@
 -- colors
-
 local bar_fg = "#565c64"
 local activeBuffer_fg = "#c8ccd4"
 
@@ -90,4 +89,3 @@ map("n", "<S-x>", [[<Cmd>bdelete<CR>]], opt)
 -- tabnew and tabprev
 map("n", "<S-n>", [[<Cmd>BufferLineCycleNext<CR>]], opt)
 map("n", "<S-p>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
-
