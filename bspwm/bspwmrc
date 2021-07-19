@@ -1,27 +1,34 @@
 #! /bin/sh
 
 # autostart apps
-pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x sxhkd >/dev/null || sxhkd &
 
 # gtk themes and term colorsheme
 cp -r ~/Public/theme\ and\ icons/bsp/.gtkrc-2.0 ~/ &
 cp -r ~/Public/theme\ and\ icons/bsp/settings.ini ~/.config/gtk-3.0/ &
 xrdb merge $HOME/.config/.Xresources &
 
-# polybar 
+# polybar
 # cp -r ~/Public/poly/bsp/polybar ~/.config/ &
 # wallpaper and nvim
-feh --bg-fill ~/.config/Wallpapers/tile.png &
+feh --bg-fill ~/.config/Wallpapers/meteorss.jpg &
 del .config/nvim && cp -r ~/Public/nvim_confs/base/nvim ~/.config/ &
-# workspaces 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 
+# workspaces
+# bspc monitor HDMI-1 -d 1 2
+# if [[ $(xrandr -q | grep 'HDMI-1 connected') ]] 
+# then
+    # bspc monitor HDMI-1 -d 1 2 3 4 5
+    # bspc monitor eDP-1 -d 6 7 8 9 10 
+# else
+    bspc monitor eDP-1 -d 1 2 3 4 5
+# fi
 
 # borders
 bspc config focused_border_color "#353b45"
 bspc config normal_border_color "#282c34"
 bspc config border_width 2
 bspc config borderless_monocle true
-# gaps 
+# gaps
 bspc config gapless_monocle false
 bspc config window_gap 15
 bspc config split_ratio 0.50
@@ -29,11 +36,9 @@ bspc config split_ratio 0.50
 bspc rule -a * state=tiled
 
 xsetroot -cursor_name left_ptr
-xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Tapping Enabled' 1 
+xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Tapping Enabled' 1
 xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Natural Scrolling Enabled' 1
 
 ~/.config/polybar/launch.sh &
 
-picom &
-ibus-daemon
-ibus restart &
+# picom &

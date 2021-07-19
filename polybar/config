@@ -21,8 +21,8 @@ color15 = ${xrdb:color15}
 dark-light = #272A2B 
 active-light = #313435
 
-[bar/example]
-tray-position = right
+[bar/eDP1]
+tray-position = left
 monitor = eDP-1
 width =  100%
 height = 25
@@ -41,13 +41,38 @@ wm-restack = bspwm
 
 modules-left = round-left bspwm round-right   
 modules-center = round-left polywins round-right     
-modules-right =  temperature   round-left  alsa round-right empty-space  cpu   empty-space round-left wlan round-right  empty-space  mem  empty-space round-left time round-right  empty-space battery  powermenu
+modules-right =  temperature  round-left  alsa round-right empty-space  cpu   empty-space round-left wlan round-right  empty-space  mem  empty-space round-left time round-right  empty-space battery  powermenu
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=17;4
 font-2 = Material Design Icons:style=Bold:size=13;3
 font-3 = unifont:fontformat=truetype:size=13:antialias=true;
 
+[bar/HDMI1]
+monitor = HDMI-1
+width =  100%
+height = 25
+padding-left =1
+padding-right=0
+background = #1e222a
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 7
+border-bottom-size = 7
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+line-size = 3
+wm-restack = bspwm
+
+modules-left = round-left bspwm round-right   
+modules-center = round-left polywins round-right     
+modules-right =  temperature  round-left  alsa round-right empty-space  cpu   empty-space round-left wlan round-right  empty-space  mem  empty-space round-left time round-right  empty-space battery  powermenu
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=11;2
+font-1 = JetBrainsMono Nerd Font:size=17;4
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
 
 [module/polywins]
 type = custom/script
