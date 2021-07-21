@@ -10,5 +10,5 @@ echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 #polybar black >>/tmp/polybar1.log 2>&1 & disown
 polybar eDP1 &
 # if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]; then
-    polybar HDMI1 &
+    # polybar HDMI1 &
 # fi

@@ -15,12 +15,12 @@ feh --bg-fill ~/.config/Wallpapers/meteorss.jpg &
 del .config/nvim && cp -r ~/Public/nvim_confs/base/nvim ~/.config/ &
 # workspaces
 # bspc monitor HDMI-1 -d 1 2
-# if [[ $(xrandr -q | grep 'HDMI-1 connected') ]] 
+# if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]
 # then
-    # bspc monitor HDMI-1 -d 1 2 3 4 5
-    # bspc monitor eDP-1 -d 6 7 8 9 10 
+# bspc monitor HDMI-1 -d 1 2 3 4 5
+# bspc monitor eDP-1 -d 6 7 8 9 10
 # else
-    bspc monitor eDP-1 -d 1 2 3 4 5
+bspc monitor eDP-1 -d 1 2 3 4 5
 # fi
 
 # borders
@@ -41,4 +41,6 @@ xinput set-prop 'MSFT0001:00 04F3:3140 Touchpad' 'libinput Natural Scrolling Ena
 
 ~/.config/polybar/launch.sh &
 
+ibus-daemon
+ibus restart &
 # picom &

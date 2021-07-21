@@ -25,15 +25,12 @@ map("n", "l", "w", opt)
 map("n", "h", "b", opt)
 map("v", "l", "e", opt)
 map("v", "h", "ge", opt)
+map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-h>", "<C-w>h", opt)
 
 
 -- Don't copy the replaced text after pasting in visual mode
 map("v", "p", '"_dP', opt)
-
--- OPEN TERMINALS --
-map("n", "<C-l>", "<C-w>l", opt) 
-map("n", "<C-h>", "<C-w>h", opt) 
-map("n", "<C-t>t", [[<Cmd> tabnew | term <CR>]], opt) -- term newtab
 
 -- copy whole file content
 map("n", "<C-a>", [[ ggVG ]], opt)
@@ -133,7 +130,7 @@ map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
 map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
 
 -- bufferline tab stuff
-map("n", "<S-t>", ":tabnew<CR>", opt) -- new tab
+map("n", "<S-t>", ":enew<CR>", opt) -- new tab
 map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
 
 -- move between tabs
