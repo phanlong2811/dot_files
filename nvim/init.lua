@@ -1,26 +1,10 @@
--- load all options
-require "options"
+local init_modules = {
+   "core",
+}
 
--- load stuff only if theme is initialized
-if require "theme" then
-    local async
-    async =
-        vim.loop.new_async(
-        vim.schedule_wrap(
-            function()
-                require "pluginList"
-                require "plugins.bufferline"
-                require "highlights"
-                require "mappings"
-                require("utils").hideStuff()
-                async:close()
-            end
-        )
-    )
-    async:send()
-else
-    -- otherwise run PackerSync
-    require "pluginList"
-    print("Now PackerSync will be executed, after completion, restart nvim.\n")
-    vim.cmd("PackerSync")
+for _, module in ipairs(init_modules) do
+   local ok, err = pcall(require, module)
+   if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+   end
 end
