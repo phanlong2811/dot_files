@@ -1,11 +1,9 @@
 local opt = vim.opt
 local g = vim.g
 
--- export user config as a global varibale
-g.nvchad_user_config = "chadrc"
-
 local options = require("core.utils").load_config().options
 
+opt.title = true
 opt.clipboard = options.clipboard
 opt.cmdheight = options.cmdheight
 opt.cul = true -- cursor line
@@ -16,10 +14,11 @@ opt.shiftwidth = options.shiftwidth
 opt.smartindent = options.smartindent
 
 -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
-opt.fillchars = { eob = " " }
+opt.fillchars = options.fillchars
 
 opt.hidden = options.hidden
 opt.ignorecase = options.ignorecase
+opt.smartcase = options.smartcase
 opt.mouse = options.mouse
 
 -- Numbers
@@ -27,10 +26,6 @@ opt.number = options.number
 opt.numberwidth = options.numberwidth
 opt.relativenumber = options.relativenumber
 opt.ruler = options.ruler
-
-vim.o.guicursor="a:block"
-vim.cmd('set nowrap')
-vim.cmd('set noswapfile')
 
 -- disable nvim intro
 opt.shortmess:append "sI"
@@ -48,8 +43,11 @@ opt.updatetime = options.updatetime
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>hl"
+opt.whichwrap:append "<>[]hl"
 
+vim.o.guicursor="a:block"
+vim.cmd('set nowrap')
+vim.cmd('set noswapfile')
 g.mapleader = options.mapleader
 
 -- disable some builtin vim plugins

@@ -15,6 +15,9 @@ local M = {}
 -- these mappings will only be called during initialization
 M.misc = function()
    local function non_config_mappings()
+      -- Don't copy the replaced text after pasting in visual mode
+       -- Don't copy the replaced text after pasting in visual mode
+      map("v", "p", '"_dP')
       vim.api.nvim_set_keymap("i", "jk", "<esc>", {})
       map("n", "L", "l", opt)
       map("n", "H", "h", opt)
@@ -26,20 +29,14 @@ M.misc = function()
       map("v", "h", "ge", opt)
       map("n", "<C-l>", "<C-w>l", opt)
       map("n", "<C-h>", "<C-w>h", opt)
-      -- Don't copy the replaced text after pasting in visual mode
-      map("v", "p", '"_dP')
-
-      -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
-      -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
-      -- empty mode is same as using :map
-      -- also don't use g[j|k] when in operator pending mode, so it doesn't alter d, y or c behaviour
-      map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-      map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-      map("", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-      map("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
       -- use ESC to turn off search highlighting
       map("n", "<Esc>", ":noh <CR>")
+
+      -- center cursor when moving (goto_definition)
+
+      -- yank from current cursor to end of line
+      map("n", "Y", "yg$")
    end
 
    local function optional_mappings()
@@ -50,7 +47,7 @@ M.misc = function()
 
       -- don't yank text on delete ( dd )
       if not nvChad_options.copy_del then
-         map({ "n", "v" }, "dd", '"_dd')
+         map({ "n", "v" }, "d", '"_d')
       end
 
       -- navigation within insert mode
@@ -62,7 +59,7 @@ M.misc = function()
          map("i", inav.forward, "<Right>")
          map("i", inav.next_line, "<Up>")
          map("i", inav.prev_line, "<Down>")
-         map("i", inav.top_of_line, "<ESC>^i")
+         map("i", inav.beginning_of_line, "<ESC>^i")
       end
 
       -- easier navigation between windows
@@ -74,24 +71,16 @@ M.misc = function()
          map("n", wnav.moveUp, "<C-w>k")
          map("n", wnav.moveDown, "<C-w>j")
       end
-
-      -- check the theme toggler
-      if nvChad_options.theme_toggler then
-         map(
-            "n",
-            maps.theme_toggler,
-            ":lua require('nvchad').toggle_theme(require('core.utils').load_config().ui.theme_toggler) <CR>"
-         )
-      end
    end
 
    local function required_mappings()
-      map("n", maps.close_buffer, ":lua require('core.utils').close_buffer() <CR>") -- close  buffer
-      map("n", maps.copy_whole_file, ":%y+ <CR>") -- copy whole file content
-      map("n", maps.new_buffer, ":enew <CR>") -- new buffer
-      map("n", maps.new_tab, ":tabnew <CR>") -- new tabs
-      map("n", maps.line_number_toggle, ":set nu! <CR>") -- toggle numbers
-      map("n", maps.save_file, ":w <CR>") -- ctrl + s to save file
+      map("n", maps.misc.cheatsheet, ":lua require('nvchad.cheatsheet').show() <CR>") -- show keybinds
+      map("n", maps.misc.close_buffer, ":lua require('core.utils').close_buffer() <CR>") -- close  buffer
+      map("n", maps.misc.copy_whole_file, ":%y+ <CR>") -- copy whole file content
+      map("n", maps.misc.new_buffer, ":enew <CR>") -- new buffer
+      map("n", maps.misc.new_tab, ":tabnew <CR>") -- new tabs
+      map("n", maps.misc.line_number_toggle, ":set nu! <CR>") -- toggle numbers
+      map("n", maps.misc.save_file, ":w <CR>") -- ctrl + s to save file
 
       -- terminal mappings --
       local term_maps = maps.terminal
@@ -118,10 +107,7 @@ M.misc = function()
 
       -- add NvChadUpdate command and mapping
       cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
-      map("n", maps.update_nvchad, ":NvChadUpdate <CR>")
-
-      -- add ChadReload command and maping
-      -- cmd "silent! command! NvChadReload lua require('nvchad').reload_config()"
+      map("n", maps.misc.update_nvchad, ":NvChadUpdate <CR>")
    end
 
    non_config_mappings()
@@ -141,8 +127,8 @@ end
 
 M.comment = function()
    local m = plugin_maps.comment.toggle
-   map("n", m, ":CommentToggle <CR>")
-   map("v", m, ":CommentToggle <CR>")
+   map("n", m, ":lua require('Comment.api').toggle_current_linewise()<CR>")
+   map("v", m, ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.dashboard = function()
@@ -155,20 +141,39 @@ M.dashboard = function()
    map("n", m.session_save, ":SessionSave <CR>")
 end
 
+M.lspconfig = function()
+   local m = plugin_maps.lspconfig
+
+   -- See `:help vim.lsp.*` for documentation on any of the below functions
+   map("n", m.declaration, "<cmd>lua vim.lsp.buf.declaration()<CR>")
+   map("n", m.definition, "<cmd>lua vim.lsp.buf.definition()<CR>")
+   map("n", m.hover, "<cmd>lua vim.lsp.buf.hover()<CR>")
+   map("n", m.implementation, "<cmd>lua vim.lsp.buf.implementation()<CR>")
+   map("n", m.signature_help, "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+   map("n", m.add_workspace_folder, "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
+   map("n", m.remove_workspace_folder, "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
+   map("n", m.list_workspace_folders, "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+   map("n", m.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+   map("n", m.rename, "<cmd>lua vim.lsp.buf.rename()<CR>")
+   map("n", m.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>")
+   map("n", m.references, "<cmd>lua vim.lsp.buf.references()<CR>")
+   map("n", m.float_diagnostics, "<cmd>lua vim.diagnostic.open_float()<CR>")
+   map("n", m.goto_prev, "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+   map("n", m.goto_next, "<cmd>lua vim.diagnostic.goto_next()<CR>")
+   map("n", m.set_loclist, "<cmd>lua vim.diagnostic.set_loclist()<CR>")
+   map("n", m.formatting, "<cmd>lua vim.lsp.buf.formatting()<CR>")
+end
+
 M.nvimtree = function()
    map("n", plugin_maps.nvimtree.toggle, ":NvimTreeToggle <CR>")
    map("n", plugin_maps.nvimtree.focus, ":NvimTreeFocus <CR>")
-end
-
-M.neoformat = function()
-   map("n", plugin_maps.neoformat.format, ":Neoformat <CR>")
 end
 
 M.telescope = function()
    local m = plugin_maps.telescope
 
    map("n", m.buffers, ":Telescope buffers <CR>")
-   map("n", m.find_files, ":Telescope find_files <CR>")
+   map("n", m.find_files, ":Telescope find_files no_ignore=true <CR>")
    map("n", m.find_hiddenfiles, ":Telescope find_files hidden=true <CR>")
    map("n", m.git_commits, ":Telescope git_commits <CR>")
    map("n", m.git_status, ":Telescope git_status <CR>")
@@ -183,23 +188,5 @@ M.telescope_media = function()
 
    map("n", m.media_files, ":Telescope media_files <CR>")
 end
-
-M.truezen = function()
-   local m = plugin_maps.truezen
-
-   map("n", m.ataraxis_mode, ":TZAtaraxis <CR>")
-   map("n", m.focus_mode, ":TZFocus <CR>")
-   map("n", m.minimalistic_mode, ":TZMinimalist <CR>")
-end
-
-M.vim_fugitive = function()
-   local m = plugin_maps.vim_fugitive
-
-   map("n", m.git, ":Git <CR>")
-   map("n", m.git_blame, ":Git blame <CR>")
-   map("n", m.diff_get_2, ":diffget //2 <CR>")
-   map("n", m.diff_get_3, ":diffget //3 <CR>")
-end
-
 
 return M

@@ -3,12 +3,12 @@ configuration{
     width: 40;
     columns: 1;
     lines: 5;
- 	font: "Iosevka 12";
+ 	font: "Fira Code 12";
     show-icons: true;
 	icon-theme: "Tela-blue";
     terminal: "st";
     drun-display-format: "{icon} {name}";
-    display-drun: "Run";
+    display-drun: "Find";
     location: 0;
     separator-style: "solid";
     disable-history: false;
@@ -17,12 +17,11 @@ configuration{
 }
 
 * {
-    background-color:#1e222a 
-      ;
-    border-color: #D8DEE9  ;
+    background-color:#1e222a;
+    border-color: #D8DEE9;
     text-color: #D8DEE9;
     separator-color: @border-color;
-    font: "Iosevka 12";
+ 	font: "Fira Code 12";
     show-icons: true;
 }
 
@@ -30,13 +29,11 @@ window {
     padding: 20px;
     height: 310px;
    // fullscreen: true;
-
-
 }
 
 mainbox {
     padding: 5px;
-            border-radius: 13px;
+    border-radius: 13px;
 
 }
 
@@ -92,4 +89,5 @@ element active {
     background-color: #EBCB8B;
     text-color: @background-color;
 }
+
 

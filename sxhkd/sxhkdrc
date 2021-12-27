@@ -9,7 +9,7 @@ super + b
      dmenu_run
 
 super + Return
-    tabbed -r 2 st -w ''
+   tabbed -c -r 2 st -w "" 
 
 # program launcher
 
